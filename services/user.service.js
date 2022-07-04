@@ -1,11 +1,14 @@
 const { prisma } = require("../config/database")
-const { router } = require("../routes/auth.routes")
 
-function createUser(username, password) {
+function createUser(username, password, firstName, lastName, age, token) {
     return prisma.user.create({
         data: {
             username,
-            password
+            password,
+            firstName,
+            lastName, 
+            age,
+            token
         }
     })
 }
@@ -14,7 +17,7 @@ function createUser(username, password) {
 function findUser(username) {
     return prisma.user.findUnique({
         where: {
-            username: username
+            username
         }
     })
 }
