@@ -22,7 +22,16 @@ function findUser(username) {
     })
 }
 
+function findUserByToken(token) {
+    return prisma.user.findUnique({
+        where: {
+            token
+        }
+    })
+}
+
 module.exports = {
     createUser,
-    findUser
+    findUser,
+    findUserByToken
 }

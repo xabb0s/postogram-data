@@ -17,5 +17,5 @@ model User {
   firstName String
   lastName  String
   age       Int
-  token     String
+  token     String @unique
 }
