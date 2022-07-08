@@ -11,7 +11,7 @@ datasource db {
 }
 
 model User {
-  id Int  @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   username  String @unique
   password  String
   avatar    String
@@ -19,4 +19,20 @@ model User {
   lastName  String
   age       Int
   token     String @unique
+  posts     Post[]
+}
+
+model Post {
+  id          Int       @id @default(autoincrement())
+  author      User      @relation(fields: [authorId], references: [id])
+  authorId    Int
+  media       String
+  media_type  MediaType
+  title       String
+  description String
+}
+
+enum MediaType {
+  PHOTO
+  VIDEO
 }
