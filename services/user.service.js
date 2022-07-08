@@ -1,12 +1,13 @@
 const prisma = require("../config/database")
 
-function createUser(username, password, firstName, lastName, age, token) {
+function createUser(username, password, firstName, lastName, age, avatar, token ) {
     return prisma.user.create({
         data: {
             username,
             password,
             firstName,
-            lastName, 
+            lastName,
+            avatar,
             age,
             token
         }
