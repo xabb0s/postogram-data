@@ -1,4 +1,4 @@
-const prisma = require("../config/database")
+const prisma = require("../config/database.js")
 
 function createUser(username, password, firstName, lastName, age, avatar, token ) {
     return prisma.user.create({
