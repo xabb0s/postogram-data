@@ -27,7 +27,7 @@ model Post {
   author      User      @relation(fields: [authorId], references: [id])
   authorId    Int
   media       String
-  media_type  MediaType
+  mediaType  MediaType
   title       String
   description String
 }
