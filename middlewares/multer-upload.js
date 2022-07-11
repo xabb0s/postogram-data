@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
     }
 
     else {
-      cd(null, v4() + ".png")
+      cb(null, v4() + ".png")
     }
   },
 
@@ -24,15 +24,15 @@ const storage = multer.diskStorage({
     const { mediaType } = req.body
 
     if (mediaType === MediaType.PHOTO) {
-      cd(null, "storage/photos")
+      cb(null, "storage/photos")
     }
 
     else if (mediaType === MediaType.VIDEO) {
-      cd(null, "storage/videos")
+      cb(null, "storage/videos")
     }
 
     else {
-      cd(null, "storage/avatars")
+      cb(null, "storage/avatars")
     }
   }
 })
