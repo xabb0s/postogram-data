@@ -12,34 +12,48 @@ datasource db {
 
 model User {
   id        Int    @id @default(autoincrement())
+
   username  String @unique
   password  String
+  
   avatar    String
   firstName String
   lastName  String
   age       Int
   token     String @unique
-  posts     Post[]
+
+  posts    Post[]
+  comments Comment[]
 }
 
 model Post {
   id          Int       @id @default(autoincrement())
+
   author      User      @relation(fields: [authorId], references: [id])
   authorId    Int
+
   media       String
   mediaType   MediaType
+
   title       String
   description String
+
+  date        DateTime  @default(now())
 
   comments Comment[]
 }
 
 model Comment {
-  id      Int      @id @default(autoincrement())
+  id      Int    @id @default(autoincrement())
   message String
-  post    Post     @relation(fields: [postId], references: [id])
-  postId  Int
-  date    DateTime @default(now())
+
+  post   Post @relation(fields: [postId], references: [id])
+  postId Int
+
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  date DateTime @default(now())
 }
 
 enum MediaType {
