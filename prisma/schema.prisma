@@ -22,6 +22,8 @@ model User {
   age       Int
   token     String @unique
 
+  date        DateTime  @default(now())
+
   posts    Post[]
   comments Comment[]
 }

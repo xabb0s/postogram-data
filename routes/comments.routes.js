@@ -68,4 +68,5 @@ router.get("/comments/author/:id", authentification, async (req, res) => {
   }
 })
 
-router.get("/comments", authentification)
+
+module.exports = router

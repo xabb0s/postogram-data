@@ -7,6 +7,7 @@ const authRoutes = require("./routes/auth.routes.js")
 const verficationRoutes = require("./routes/verfication.routes.js")
 const uploadRoutes = require("./routes/upload.routes.js")
 const postRoutes = require("./routes/post.routes.js")
+const commentRoutes = require("./routes/comments.routes.js")
 
 const app = express()
 
@@ -25,6 +26,7 @@ app.use("/", authRoutes)
 app.use("/", verficationRoutes)
 app.use("/", uploadRoutes)
 app.use("/", postRoutes)
+app.use("/", commentRoutes)
 
 const port = process.env.PORT || 8000
 app.listen(port, () => {
