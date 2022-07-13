@@ -27,9 +27,19 @@ model Post {
   author      User      @relation(fields: [authorId], references: [id])
   authorId    Int
   media       String
-  mediaType  MediaType
+  mediaType   MediaType
   title       String
   description String
+
+  comments Comment[]
+}
+
+model Comment {
+  id      Int      @id @default(autoincrement())
+  message String
+  post    Post     @relation(fields: [postId], references: [id])
+  postId  Int
+  date    DateTime @default(now())
 }
 
 enum MediaType {
